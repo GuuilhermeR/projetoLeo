@@ -12,7 +12,6 @@
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "materialize-css": "^1.0.0",
     "nocache": "^2.1.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../../header/header';
-import CardHome from '../../body/home/cardHome';
+import ChooseCard from '../../body/escolheCarros/chooseCard';
 import Footer from '../../footer/footer';
 
 
@@ -9,7 +9,7 @@ class Home extends Component {
         return (
             <Fragment>
                 <Header title="MG Revendedora"/>
-                <CardHome />
+                <ChooseCard />
                 <Footer />
             </Fragment>
         )

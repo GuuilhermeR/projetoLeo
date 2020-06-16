@@ -1,0 +1,13 @@
+.mb-10{width: 60%; height: 30%; position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%);}
+.card-cars-margin{width: 42.5% !important; float: left !important;}
+.card-new-cars-margin{width: 42.5% !important;  margin-left: 5% !important; float: right !important;}
+.card-cars-style{width: 100% !important;}
+.card-cars-size{height: 5.5em !important; background-color: rgb(233, 233, 233) !important; color: rgba(20, 20, 63) !important;}
+
+.btn-cars-size{
+    padding-top: 0.5% !important;
+    width: 6vh !important;
+    height: 6vh !important;
+}
+
+@media only screen and (max-width: 600px){.mb-10{width: 70%;}}

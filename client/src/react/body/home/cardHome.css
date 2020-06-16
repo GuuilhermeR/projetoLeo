@@ -1,0 +1,46 @@
+.card-style{
+    width: 40%; 
+    height: 60%; 
+    position: absolute; 
+    background-color: rgba(58, 58, 58, 0.849) !important;
+    left: 50.5%; 
+    top: 46%; 
+    transform: translate(-50%, -50%); 
+    border-style: solid;
+    border-radius: 3% !important;
+}
+  
+.car-media-style{
+    height: 250px;
+    border-bottom-style: solid;
+    border-width: 1px;
+}
+  
+.card-content-style{
+    background-color: rgb(204, 204, 204) !important;
+    border-bottom-style: solid;
+    border-width: 1px;
+    padding: 1% !important;
+    text-align: center !important;
+}
+
+.button5{
+    width: 100% !important;
+    padding: 4.5% !important;
+    color:whitesmoke !important;
+    background-color: rgba(58, 58, 58, 0.932) !important;
+    text-align:center !important;
+    transition: all 0.15s !important;
+    text-decoration:none !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    outline:none !important; 
+    border-style: none !important;
+    border-width: 0px !important;
+}
+
+.button5:hover{ color:rgb(107, 107, 107) !important; border-color:rgb(70, 70, 70) !important; }
+.button5:active{ background-color: #0B274F; transform: translateY(4px); box-shadow: 2px 2px rgb(37, 37, 37) !important;}
+
+@media only screen and (width: 1920px){.card-style{height: 45%; top: 38%} .car-media-style{height: 260px;} .button5{padding: 5% !important;} .card-content-style{padding: 3% !important;}}
+@media only screen and (max-width: 600px){.mb-10{width: 70%;}}
