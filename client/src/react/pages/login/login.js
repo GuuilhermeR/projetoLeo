@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Header from '../../header/header';
-import CardHome from '../../body/home/cardHome';
+import CardHome from '../../body/login/login';
 import Footer from '../../footer/footer';
 
 

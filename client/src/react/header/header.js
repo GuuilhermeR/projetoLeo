@@ -8,6 +8,12 @@ class Header extends React.Component{
             <nav>
                 <div className="nav-wrapper color-style">
                     <div className="title-position-style">{this.props.title}</div>
+                    <div id="links-config">
+                        <ul id="nav-mobile" className="links-style right hide-on-med-and-down">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/login">Área do Gestor</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         )
