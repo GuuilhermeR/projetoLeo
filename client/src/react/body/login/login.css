@@ -1,1 +1,14 @@
-.text-field-style{text-align-last: center !important;}
+.visible-password-position{
+    margin-top: 3% !important;
+    cursor: pointer !important;
+}
+
+.visible-password-off-position{
+    margin-top: 3% !important;
+    cursor: pointer !important;
+    display: none !important;
+}
+
+.div-password-icon{float: right !important;}
+
+.textfns{float: left !important;}
