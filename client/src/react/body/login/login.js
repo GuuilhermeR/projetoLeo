@@ -9,6 +9,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import './login.css';
 
 const useStyles = makeStyles((theme) => ({
  
@@ -38,7 +39,6 @@ export default function SignIn() {
 
   return (
     <Container component="main" maxWidth="xs">
-      <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -57,6 +57,7 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            className = "text-field-style"
           />
           <TextField
             variant="outlined"
@@ -68,6 +69,7 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            className = "text-field-style"
           />
           <Button
             type="submit"
