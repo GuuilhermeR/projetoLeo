@@ -1,0 +1,77 @@
+.left-inputs-edit-carros{
+    width: 45% !important;
+    float: left !important;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.right-inputs-edit-carros{
+    width: 45% !important;
+    float: right !important;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+  
+.button-edit-style {
+    background-color: rgb(3, 54, 39) !important;
+    width: 45% !important;
+    float: right !important;
+    resize: vertical;
+    color: white !important;
+    padding: 10px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
+  
+.button-edit-style:hover {
+    background-color: #535353 !important;
+}
+    
+.div-assist-edit-carros {
+    float: left;
+    width: 13%;
+    margin-top: 4.5px;
+}
+  
+.div-inputs-edit-carros {
+    float: left;
+    width: 75%;
+    margin-top: 4.5px;
+}
+
+.button-edicao{
+    margin-top: 1.3% !important;
+    margin-right: 1.3em !important;
+    float: right;
+    width: 8.3em !important;
+    padding: 0.7em !important;
+    border:0.1em solid rgb(63, 13, 13) !important;
+    color:rgb(77, 25, 25) !important;
+    text-shadow: 0 0.04em 0.04em rgb(25, 25, 77) !important;
+    text-align:center !important;
+    transition: all 0.15s !important;
+    background-color:#4e516642 !important;
+    border-radius: 5% !important;
+    text-decoration:none !important;
+    cursor: pointer !important;
+    outline:none !important;
+    border-width: 2px !important;
+    font-weight: bold !important;
+    font-size: 83% !important;
+}
+.button-edicao:hover{ color:rgb(82, 82, 82) !important; border-color:rgb(70, 70, 70) !important;}
+
+.button-dialog-form-editgym{background-color: rgb(3, 54, 39) !important; color: whitesmoke !important;}
+  
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .div-assist-edit-academias, .div-inputs-edit-academias{
+      width: 100%;
+      margin-top: 0;
+    }
+}
