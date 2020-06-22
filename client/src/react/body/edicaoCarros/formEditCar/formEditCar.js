@@ -91,16 +91,10 @@ class FormEditGym extends Component {
     }
 
 
-   /* validaCamposNull = () => {
-        if (document.getElementById("complemento-edit-academia").value === "")
+    validaCamposNull = () => {
+        if (document.getElementById("dadosadicionais-edit-carro").value === "")
             compl = "null";
-    
-        if (document.getElementById("telefone-edit-academia").value === "")
-            fone = "null";
-    
-        if (document.getElementById("email-edit-academia").value === "")
-            email = "null";
-    }*/
+    }
 
 
     onclickAlteraAcademia = () => {
