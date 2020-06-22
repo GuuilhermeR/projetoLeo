@@ -11,6 +11,7 @@ class Header extends React.Component{
                     <div id="links-config">
                         <ul id="nav-mobile" className="links-style right hide-on-med-and-down">
                             <li><a href="/">Home</a></li>
+                            <li><a href="/escolheCarros">Carros</a></li>
                             <li><a href="/login">Área do Gestor</a></li>
                         </ul>
                     </div>

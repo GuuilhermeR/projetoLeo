@@ -8,6 +8,7 @@ const consomeApi = (parametro, routeMethod) => {
 
 const ApiService = {
     CriaGestor: (nome, login, email, senha) => consomeApi(`gestor/new/${nome}/${login}/${email}/${senha}`, 'POST'),
+    LoginGestor: (login, senha) => consomeApi(`gestor/${login}/${senha}`, 'POST'),
     TrataErros: res => {
         if (!res.ok) {
             throw Error(res.responseText)

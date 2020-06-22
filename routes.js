@@ -12,7 +12,11 @@ exports.Get = Get;
 
 async function Post(dirname, app) {
     try{
-        //
+        app.post("/api/revendedora/gestor/:login/:senha", (req, res, next) => {
+            var loginGestorController = require(dirname + '/client/src/login/loginController');
+            var instaceLoginController = new loginGestorController.LoginController();
+            instaceLoginController.getLoginAccess(req.params.login, req.params.senha, res);
+        });
     }
     catch(err){
         console.log(err);

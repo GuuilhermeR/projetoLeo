@@ -1,0 +1,8 @@
+.div-btn-config{
+    margin-left: 0.5em; 
+    position: fixed; 
+    left: 0; 
+    bottom: 3em; 
+    text-align: center;
+    cursor: pointer;
+}

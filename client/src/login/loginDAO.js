@@ -4,7 +4,7 @@ var bcrypt = require('bcryptjs');
 
 class LoginDAO{
     selectLogin(objGestor, result){
-        let sql = "SELECT * FROM Login WHERE UPPER(Login) = ?";
+        let sql = "SELECT * FROM Gestores WHERE UPPER(Login) = ?";
         var data = [];
         let params = [objGestor.login]
         instanceDB.each(sql, params, (err, row) => {
@@ -42,7 +42,7 @@ class LoginDAO{
             const salt = bcrypt.genSaltSync(10);
             const hash = bcrypt.hashSync(passwordCrip, salt);
 
-            let sql = `INSERT INTO Login(Nome, Login, Email, Senha) VALUES ('${objGestor.nome}', '${objGestor.login}', '${objGestor.email}', '${hash}')`;
+            let sql = `INSERT INTO Gestores(Nome, Login, Email, Senha) VALUES ('${objGestor.nome}', '${objGestor.login}', '${objGestor.email}', '${hash}')`;
             instanceDB.run(sql, [], function(err) {
                 if (err) {
                     if(err.errno == 19){
@@ -74,7 +74,7 @@ class LoginDAO{
 
     VerificaSenhaAtual(idGestor, senhaAtual, novaSenha, res){
         try{
-            let sql = "SELECT * FROM Login WHERE Id = ?";
+            let sql = "SELECT * FROM Gestores WHERE Id = ?";
             let params = [idGestor]
             instanceDB.get(sql, params, (err, row) => {
                 if (err) {
@@ -106,7 +106,7 @@ class LoginDAO{
             const salt = bcrypt.genSaltSync(10);
             const hash = bcrypt.hashSync(passwordCrip, salt);
 
-            let sql = `UPDATE Login SET Senha = '${hash}' WHERE Id = ${idGestor}`;
+            let sql = `UPDATE Gestores SET Senha = '${hash}' WHERE Id = ${idGestor}`;
             instanceDB.run(sql, [], function(err) {
                 if(err){
                     res.json({

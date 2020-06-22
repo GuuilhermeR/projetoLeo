@@ -1,0 +1,79 @@
+.car-body{
+    position: relative;
+    margin-top: 1em !important;
+    margin-left: 0.3em !important;
+    width: 99% !important;
+}
+
+.table-container-style{
+    max-height: 45em !important;
+    border-style: 'Solid' !important;
+    border-radius: 5px !important;
+    margin-top: 10px !important;
+}
+
+tr {
+    height: 40px !important;
+    background-color: rgba(206, 206, 206, 0.795);
+}
+  
+th {
+    font-size: 100% !important;
+    font-weight: bold !important;
+    max-width: 125px;
+    min-width: 125px;
+    padding: 0 !important;          
+    overflow-x: auto;
+    white-space: nowrap;
+    text-align: center !important;
+    background-color: rgb(3, 54, 39) !important;
+    color: whitesmoke !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: rgb(3, 54, 39) !important;
+}
+  
+td {
+    padding: 0 !important;
+    text-align: center !important;
+    border-color: rgba(207, 207, 207, 0.527) !important;
+    border-style: solid !important;
+    border-width: 1px !important;
+}
+
+tbody tr:nth-child(odd){
+    background-color: rgb(202, 202, 202);
+    color: #fff;
+}
+
+.div-button-report{ width: 100%; height: 8em; position: relative;}
+.button-voltar-report{
+    margin-top: 1.5em !important;
+    margin-right: 0.4em !important;
+    float: right;
+    width: 7em !important;
+    padding: 0.5em !important;
+    border:0.1em solid rgb(3, 54, 39) !important;
+    color:rgb(3, 54, 39) !important;
+    text-shadow: 0 0.04em 0.04em rgb(3, 54, 39) !important;
+    text-align:center !important;
+    transition: all 0.15s !important;
+    background-color:#4e516642 !important;
+    border-radius: 5% !important;
+    text-decoration:none !important;
+    cursor: pointer !important;
+    outline:none !important;
+    border-width: 2px !important;
+}
+.button-voltar-report:hover{ color:rgb(82, 82, 82) !important; border-color:rgb(70, 70, 70) !important;}
+
+.button-dialog-editcar-color{background-color: rgb(3, 54, 39) !important; color: whitesmoke !important;}
+
+@media only screen and (max-width: 2000px){.div-button-report{padding-top: 1.5em;} .button-voltar-report{margin-right: 1em !important;}}
+@media only screen and (max-width: 1700px){.div-button-report{padding-top: 0.5em;}}
+@media only screen and (max-width: 780px){.button-voltar-report{margin-right: 0.4em !important;}}
+
+@media only screen and (max-width: 1600px){.table-container-style{max-height: 35em !important;}}
+@media only screen and (max-width: 1400px){.table-container-style{max-height: 45em !important;}}
+@media only screen and (max-width: 1366px){.table-container-style{max-height: 25.8em !important;}}
+@media only screen and (width: 1280px) and (height: 800px){.table-container-style{max-height: 30em !important;}}

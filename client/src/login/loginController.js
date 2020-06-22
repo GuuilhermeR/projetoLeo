@@ -1,6 +1,6 @@
-let gestorDAO = require("./LoginDAO");
-let gestor = require("./Login");
-const autenticacaoSession = require('../Autenticacao/AutenticacaoSession');
+let gestorDAO = require("./loginDAO");
+let gestor = require("./login");
+const autenticacaoSession = require('../autenticacao/autenticacaoSession');
 
 class LoginController{
     getCreateGestor(nome, login, email, senha, res){

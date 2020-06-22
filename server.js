@@ -1,10 +1,10 @@
 const express = require('express');
 var routes = require('./routes');
 var usings = require('./usings');
-//const singletonDB = require('singleton-db');
+const singletonDB = require('singleton-db');
 
-const caminhoBanco = "";
-//singletonDB.Instance.createInstance(caminhoBanco);
+const caminhoBanco = __dirname+"/db/mg_revendedora.db";
+singletonDB.Instance.createInstance(caminhoBanco);
 
 const app = express();
 usings.Usings(express, __dirname, app); // Funcao responsAvel por carregar todos os mOdulos usados e permissoes de acesso ao server

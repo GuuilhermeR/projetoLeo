@@ -14,7 +14,8 @@
     "express": "^4.17.1",
     "nocache": "^2.1.0",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "singleton-db": "file:modules/singleton-db"
   },
   "revendedoraDependencies": {
     "concurrently": "^5.2.0"

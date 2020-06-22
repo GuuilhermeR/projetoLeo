@@ -1,0 +1,13 @@
+.card-carros-margin{width: 42.5% !important; float: left !important;}
+.card-gestor-margin{width: 42.5% !important;  margin-left: 5% !important; float: right !important;}
+.card-cadastro-style{width: 100% !important;}
+.card-cadastro-size{height: 5.5em !important; background-color: whitesmoke !important; color: rgba(20, 20, 63) !important;}
+.card-image{cursor: pointer;}
+
+.btn-cad-size{
+    padding-top: 0.5% !important;
+    width: 6vh !important;
+    height: 6vh !important;
+}
+
+@media only screen and (max-width: 600px){.mb-10-cards{width: 70%;}}
