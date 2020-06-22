@@ -93,7 +93,7 @@ class FormEditGym extends Component {
 
     validaCamposNull = () => {
         if (document.getElementById("dadosadicionais-edit-carro").value === "")
-            compl = "null";
+        DadosAdicionais = "null";
     }
 
 
