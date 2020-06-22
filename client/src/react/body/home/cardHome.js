@@ -32,7 +32,7 @@ class CardHome extends React.Component {
                             MG Revendedora
                         </Typography>
                         <Typography variant="body2" color="textSecondary" component="p">
-                            Encontre o melhorcarro para você
+                            Encontre o melhor carro para você
                         </Typography>
                     </CardContent>
                 </CardActionArea>

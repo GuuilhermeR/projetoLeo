@@ -1,0 +1,97 @@
+.container{
+    margin-top: 1%;
+}
+
+.inputs-user-password{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+  
+.button-style-user-password {
+    background-color: rgb(58, 6, 6) !important;
+    color: white !important;
+    width: 100% !important;
+    padding: 12px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    float: right !important;
+}
+  
+.button-style-user-password:hover {
+    background-color: #535353 !important;
+}
+    
+.div-assist-change-passw {
+    float: left;
+    width: 13%;
+    margin-top: 6px;
+}
+  
+.div-inputs-change-passw {
+    float: left;
+    width: 75%;
+    margin-top: 25px;
+}
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.label-style{
+    font-size: 100%;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+}
+  
+.btn-voltar-change-passw{
+    margin-right: 0.4em !important;
+    float: right;
+    width: 8.3em !important;
+    padding: 0.7em !important;
+    border:0.1em solid rgb(3, 54, 39) !important;
+    color:rgb(3, 54, 39) !important;
+    text-shadow: 0 0.04em 0.04em rgb(3, 54, 39) !important;
+    text-align:center !important;
+    transition: all 0.15s !important;
+    background-color:#4e516642 !important;
+    border-radius: 5% !important;
+    text-decoration:none !important;
+    cursor: pointer !important;
+    outline:none !important;
+    border-width: 2px !important;
+    font-weight: bold !important;
+    font-size: 83% !important;
+}
+  
+.btn-voltar-change-passw:hover{ color:rgb(82, 82, 82) !important; border-color:rgb(70, 70, 70) !important; }
+.div-voltar-change-passw{ padding-right: 0.7em; position: fixed; height: 3.3em; left: 0; bottom: 2.8em; width: 100%; color: white; text-align: center;}
+
+.visible-password-pos{
+    float: right;
+    margin-top: 3% !important;
+    cursor: pointer !important;
+}
+.visible-password-off-pos{
+    float: right;
+    margin-top: 3% !important;
+    cursor: pointer !important;
+    display: none !important;
+}
+
+  
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+@media screen and (max-width: 1370px) { .div-inputs-change-passw { margin-top: 1px;}}
+@media screen and (max-width: 1290px) { .div-inputs-change-passw { margin-top: 8px;}}
+@media screen and (max-width: 600px) {
+    .div-assist-change-passw, .div-inputs-change-passw {
+      width: 100%;
+      margin-top: 0;
+    }
+}
