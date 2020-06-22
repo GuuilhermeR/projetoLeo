@@ -10,7 +10,7 @@
 }
   
 .button-style-user-password {
-    background-color: rgb(58, 6, 6) !important;
+    background-color: rgb(3, 54, 39) !important;
     color: white !important;
     width: 100% !important;
     padding: 12px !important;
@@ -74,12 +74,12 @@
 
 .visible-password-pos{
     float: right;
-    margin-top: 3% !important;
+    margin-top: 2% !important;
     cursor: pointer !important;
 }
 .visible-password-off-pos{
     float: right;
-    margin-top: 3% !important;
+    margin-top: 2% !important;
     cursor: pointer !important;
     display: none !important;
 }
