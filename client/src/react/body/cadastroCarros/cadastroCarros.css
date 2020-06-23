@@ -1,0 +1,117 @@
+.convertToBlob{
+    position: absolute !important;
+    margin-left: 70%;
+}
+
+.txt-file-uploaded{width: 100% !important; color: rgb(134, 16, 16); font-weight: bold;}
+
+.left-inputs-carros{
+    width: 45% !important;
+    float: left !important;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.right-inputs-carros{
+    width: 45% !important;
+    float: right !important;
+    padding: 3px;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(94, 94, 94, 0.774) !important;
+    opacity: 1 !important; /* Firefox */
+}
+
+.textArea-inputs-carros{
+    width: 45% !important;
+    float: left !important;
+    resize: none !important; 
+    outline: none !important; 
+    height: 10vh !important;
+    border-color: rgb(141, 141, 141) !important;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+  
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+  
+.button-style {
+    background-color: rgb(3, 54, 39) !important;
+    width: 100% !important;
+    float: right !important;
+    resize: vertical;
+    color: white !important;
+    padding: 10px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
+  
+.button-style:hover {
+    background-color: #535353 !important;
+}
+    
+.div-assist-carros {
+    float: left;
+    width: 13%;
+    margin-top: 4.5px;
+}
+  
+.div-inputs-carros {
+    float: left;
+    width: 75%;
+    margin-top: 4.5px;
+}
+  
+  /* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.label-style{
+    font-size: 100%;
+    color: rgb(51, 51, 51);
+    font-weight: bold;
+}
+
+.btn-cad-carros{
+    margin-right: 1.3em !important;
+    float: right;
+    width: 8.3em !important;
+    padding: 0.7em !important;
+    border:0.1em solid rgb(3, 54, 39) !important;
+    color:rgb(3, 54, 39) !important;
+    text-align:center !important;
+    transition: all 0.15s !important;
+    background-color:#4e516642 !important;
+    border-radius: 5% !important;
+    text-decoration:none !important;
+    cursor: pointer !important;
+    outline:none !important;
+    border-width: 2px !important;
+    font-weight: bold !important;
+    font-size: 83% !important;
+}
+  
+.btn-cad-carros:hover{ color:rgb(82, 82, 82) !important; border-color:rgb(70, 70, 70) !important; }
+
+.dialog-cad-carros{background-color:rgb(3, 54, 39) !important; color: whitesmoke !important;}
+  
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .div-assist-carros, .div-inputs-carros{
+      width: 100%;
+      margin-top: 0;
+    }
+}
