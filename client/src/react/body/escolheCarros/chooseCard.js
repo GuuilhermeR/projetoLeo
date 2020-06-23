@@ -19,8 +19,8 @@ const ChooseCard = () => {
                             <img src={Carros_Seminovos} onClick={goToCarrosSeminovos} height="205" alt="Imagem de carro seminovo"/>
                             <div className="btn-cars-size btn-floating halfway-fab waves-effect waves-light N/A transparent" onClick={goToCarrosSeminovos}><img src={Enter_Icon} alt="Enter icon"></img></div>
                         </div>
-                        <div className="card-content card-cars-size">
-                            <p align="center">Carros Seminovos</p>
+                        <div className="card-content card-cars-size" onClick={goToCarrosSeminovos}>
+                            <p  align="center">Carros Seminovos</p>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ const ChooseCard = () => {
                             <img src={Carros_Novos} onClick={goToCarrosNovos} height="205" alt="Imagem de carros novos"/>
                             <div className="btn-cars-size btn-floating halfway-fab waves-effect waves-light N/A transparent" onClick={goToCarrosNovos}><img src={Enter_Icon} alt="Enter icon"></img></div>
                         </div>
-                        <div className="card-content card-cars-size">
+                        <div className="card-content card-cars-size" onClick={goToCarrosSeminovos}>
                             <p align="center">Carros Novos</p>
                         </div>
                     </div>
