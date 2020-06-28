@@ -5,7 +5,7 @@ import Footer from '../../footer/footer';
 import Button from '@material-ui/core/Button';
 
 const goToHome = () =>{
-    window.location.href = "/";
+    window.location.href = "/login";
 }
 
 const NotAuthenticated = () =>{

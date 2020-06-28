@@ -9,9 +9,9 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import './formEditCar.css';
 import 'materialize-css/dist/css/materialize.min.css';
-
-var Nome = '', Modelo = '', Cor = '', TipoAbastecimento = '', Ano = '', FinalPlaca = '', KilometragemAtual = '', Descricao = '', DadosAdicionais = '',
-    Imagem = '', IdGestor = '';
+let evento = '';
+var Nome = '', Modelo = '', Cor = '', TipoAbastecimento = '', Ano = '', FinalPlaca = '', KilometragemAtual = '', Descricao = '', DadosAdicionais = '';
+let nomeCarroAntesDeAlterar = '';
 
 class FormEditGym extends Component {
     constructor(props) {
@@ -32,16 +32,16 @@ class FormEditGym extends Component {
 
     getCarById = () => {
         try {
-            ApiService.getCarById(localStorage.getItem("ID"))
+            ApiService.GetCarById(localStorage.getItem("idCarroEdicao"))
                 .then(res => {
                     this.setState({ openDialog: false });
                     if (res.status === 200) { 
-                        this.preencheValoresAcademia(res.data);
+                        this.preencheValoresCarro(res.data);
                     }
                     else 
                         PopUp.exibeMensagem('error', res.message); 
                 })
-                .catch(err => PopUp.exibeMensagem('error', 'Falha na comunicação com a API ao listar as academias'));
+                .catch(err => PopUp.exibeMensagem('error', 'Falha na comunicação com a API ao listar os carros'));
         }
         catch (err) {
             console.log(err.message);
@@ -50,17 +50,16 @@ class FormEditGym extends Component {
 
 
     preencheValoresCarro = (dadosCarro) => {
+        nomeCarroAntesDeAlterar = dadosCarro.Nome;
         document.getElementById("nome-edit-carro").value = dadosCarro.Nome;
         document.getElementById("modelo-edit-carro").value = dadosCarro.Modelo;
         document.getElementById("cor-edit-carro").value = dadosCarro.Cor;
         document.getElementById("tipoabastecimento-edit-carro").value = dadosCarro.TipoAbastecimento;
-        document.getElementById("ano-edit-carro").value = dadosCarro.DialogActions;
+        document.getElementById("ano-edit-carro").value = dadosCarro.Ano;
         document.getElementById("finalplaca-edit-carro").value = dadosCarro.FinalPlaca;
         document.getElementById("kilometragematual-edit-carro").value = dadosCarro.KilometragemAtual;
         document.getElementById("descricao-edit-carro").value = dadosCarro.Descricao;
-        document.getElementById("dadosadicionais-edit-carro").value = dadosCarro.DadosAdicionais;
-        document.getElementById("imagem-edit-carro").value = dadosCarro.Imagem;
-        document.getElementById("idgestor-edit-carro").value = dadosCarro.IdGestor;
+        document.getElementById("dadosAdicionais-edit-carro").value = dadosCarro.DadosAdicionais;
     }
 
 
@@ -73,12 +72,8 @@ class FormEditGym extends Component {
                             if (document.getElementById("finalplaca-edit-carro").value !== "") {
                                 if (document.getElementById("kilometragematual-edit-carro").value !== "") {
                                     if (document.getElementById("descricao-edit-carro").value !== "") {
-                                        if (document.getElementById("dadosadicionais-edit-carro").value !== ""){
-                                            if (document.getElementById("imagem-edit-carro").value !== ""){
-                                                if (document.getElementById("idgestor-edit-carro").value !== ""){
-                                                    return ""
-                                                } else return "IdGestor";
-                                            } else return "Imagem";
+                                        if (document.getElementById("dadosAdicionais-edit-carro").value !== ""){
+                                           return "";
                                         } else return "DadosAdicionais";
                                     } else return "Descricao";
                                 } else return "Kilometragem";
@@ -92,16 +87,17 @@ class FormEditGym extends Component {
 
 
     validaCamposNull = () => {
-        if (document.getElementById("dadosadicionais-edit-carro").value === "")
+        if (document.getElementById("dadosAdicionais-edit-carro").value === "")
         DadosAdicionais = "null";
     }
 
 
-    onclickAlteraAcademia = () => {
+    onclickAlteraCarro = () => {
         let campoNulo = this.validaCamposNotNull();
 
         if (campoNulo === "") {
-            this.setState({ dialogContext: "Você deseja realmente alterar a academia '" + document.getElementById("nome-edit-carro").value + "'?" });
+            evento = 'alterar';
+            this.setState({ dialogContext: "Você deseja realmente alterar o carro '" + nomeCarroAntesDeAlterar + "'?" });
             this.handleOpen();
         }
         else {
@@ -110,8 +106,25 @@ class FormEditGym extends Component {
         }
     }
 
+    onclickDeletaCarro = () => {
+        evento = 'deletar';
+        this.setState({ dialogContext: "Você deseja realmente deletar o carro '" + nomeCarroAntesDeAlterar + "'?" });
+        this.handleOpen();
+    }
 
-    getDadosAcademia = () => {
+    
+    handleOpen = () => { this.setState({ openDialog: true }); };
+    dialogClose = () => { this.setState({ openDialog: false }); };
+    dialogConfirm = () => {
+        this.setState({ openDialog: false });
+        if(evento === 'alterar')
+            this.getDadosCarro();
+        else
+            this.deletaCarro();
+    }
+
+
+    getDadosCarro = () => {
         Nome = document.getElementById("nome-edit-carro").value;
         Modelo = document.getElementById("modelo-edit-carro").value;
         Cor = document.getElementById("cor-edit-carro").value;
@@ -120,21 +133,39 @@ class FormEditGym extends Component {
         FinalPlaca = document.getElementById("finalplaca-edit-carro").value;
         KilometragemAtual = document.getElementById("kilometragematual-edit-carro").value;
         Descricao = document.getElementById("descricao-edit-carro").value;
-        DadosAdicionais = document.getElementById("dadosadicionais-edit-carro").value;
-        Imagem = document.getElementById("imagem-edit-carro").value;
-        IdGestor = document.getElementById("idgestor-edit-carro").value;
+        DadosAdicionais = document.getElementById("dadosAdicionais-edit-carro").value;
         this.validaCamposNull();
-        this.alteraAcademia();
+        this.alteraCarro();
     }
 
 
-    alteraAcademia = () => {
+    alteraCarro = () => {
         try {
-            ApiService.AlteraAcademia(localStorage.getItem("IF"), Nome, Modelo, Cor, TipoAbastecimento, Ano, FinalPlaca, KilometragemAtual, Descricao, DadosAdicionais, Imagem, IdGestor)
+            ApiService.AlteraCarro(localStorage.getItem("idCarroEdicao"), Nome, Modelo, Cor, TipoAbastecimento, Ano, FinalPlaca, KilometragemAtual, Descricao, DadosAdicionais)
             .then(res => {
                 if (res.status === 200) {
                     PopUp.exibeMensagem('success', res.message);
+                    nomeCarroAntesDeAlterar = document.getElementById("nome-edit-carro").value;
                     this.getCarById();
+                }
+                else
+                    PopUp.exibeMensagem('error', res.message);
+            })
+            .catch(err => PopUp.exibeMensagem('error', "Não foi possível comunicar com a API"));
+        }
+        catch (err) {
+            console.log(err.message);
+        }
+    }
+
+
+    deletaCarro = () => {
+        try {
+            ApiService.DeletaCarro(localStorage.getItem("idCarroEdicao"))
+            .then(res => {
+                if (res.status === 200) {
+                    PopUp.exibeMensagem('success', res.message);
+                    window.location.href = "/tabelaCarros";
                 }
                 else
                     PopUp.exibeMensagem('error', res.message);
@@ -152,15 +183,7 @@ class FormEditGym extends Component {
     }
 
 
-    handleOpen = () => { this.setState({ openDialog: true }); };
-    dialogClose = () => { this.setState({ openDialog: false }); };
-    dialogConfirm = () => {
-        this.setState({ openDialog: false });
-        this.getDadosCarro();
-    }
-
-
-    gotoEscolheCarro = () => { window.location.href = "/formEdicaoCarro"; };
+    gotoEscolheCarro = () => { window.location.href = "/tabelaCarros"; };
 
 
     render() {
@@ -179,39 +202,47 @@ class FormEditGym extends Component {
                         <div className="row">
                             <div className="div-assist-edit-carros"></div>
                             <div className="div-inputs-edit-carros">
-                                <input type="text" id="nome-edit-carro" className="left-inputs-edit-carro" placeholder="Nome..." />
-                                <input type="text" id="modelo-edit-carro" className="right-inputs-edit-carro" placeholder="Modelo..." />
+                                <input type="text" id="nome-edit-carro" className="left-inputs-edit-carros" placeholder="Nome..." />
+                                <input type="text" id="modelo-edit-carro" className="right-inputs-edit-carros" placeholder="Modelo..." />
                             </div>
                         </div>
                         <div className="row">
                             <div className="div-assist-edit-carros">
                             </div>
                             <div className="div-inputs-edit-carros">
-                                <input type="text" id="cor-edit-carro" className="left-inputs-edit-carro" placeholder="Cor..." />
-                                <input type="text" id="tipoabastecimento-edit-carro" className="right-inputs-edit-carro" placeholder="Tipo de Abastecimento..." />
+                                <input type="text" id="cor-edit-carro" className="left-inputs-edit-carros" placeholder="Cor..." />
+                                <input type="text" id="tipoabastecimento-edit-carro" className="right-inputs-edit-carros" placeholder="Tipo de Abastecimento..." />
                             </div>
                         </div>
                         <div className="row">
                             <div className="div-assist-edit-carros">
                             </div>
                             <div className="div-inputs-edit-carros">
-                                <input type="text" id="ano-edit-carro" className="left-inputs-edit-carro" placeholder="Ano..." />
-                                <input type="text" id="finalplaca-edit-carro" className="right-inputs-edit-carro" placeholder="Final da Placa..." />
+                                <input type="text" id="ano-edit-carro" className="left-inputs-edit-carros" placeholder="Ano..." />
+                                <input type="text" id="finalplaca-edit-carro" className="right-inputs-edit-carros" placeholder="Final da Placa..." />
                             </div>
                         </div>
                         <div className="row">
                             <div className="div-assist-edit-carros">
                             </div>
                             <div className="div-inputs-edit-carros">
-                                <input type="text" id="kilometragematual-edit-carro" className="left-inputs-edit-carro" placeholder="Kilometragem Atual..." />
-                                <input type="text" id="descricao-edit-carro" className="right-inputs-edit-carro" placeholder="Descrição..." />
+                                <input type="text" id="kilometragematual-edit-carro" className="left-inputs-edit-carros" placeholder="Kilometragem Atual..." />
+                                <input type="text" id="descricao-edit-carro" className="right-inputs-edit-carros" placeholder="Descrição..." />
                             </div>
                         </div>
                         <div className="row">
                             <div className="div-assist-edit-carros">
                             </div>
                             <div className="div-inputs-edit-carros">
-                                <input type="text" id="dadosadicionais-edit-carro" className="left-inputs-edit-carro" placeholder="Dados adicionais..." />
+                            <textarea type="text" id="dadosAdicionais-edit-carro" className="textArea-inputs-carros" placeholder="Dados Adicionais..." />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="div-assist-edit-carros">
+                            </div>
+                            <div className="div-inputs-edit-carros">
+                                <Button className="button-style left-inputs-edit-carros" onClick={this.onclickAlteraCarro}>Alterar</Button>
+                                <Button className="button-style right-inputs-edit-carros" onClick={this.onclickDeletaCarro}>Deletar</Button>
                             </div>
                         </div>
 

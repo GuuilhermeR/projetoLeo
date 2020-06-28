@@ -1,10 +1,3 @@
-.convertToBlob{
-    position: absolute !important;
-    margin-left: 70%;
-}
-
-.txt-file-uploaded{width: 100% !important; color: rgb(134, 16, 16); font-weight: bold;}
-
 .left-inputs-carros{
     width: 45% !important;
     float: left !important;
@@ -28,7 +21,7 @@
 }
 
 .textArea-inputs-carros{
-    width: 45% !important;
+    width: 100% !important;
     float: left !important;
     resize: none !important; 
     outline: none !important; 

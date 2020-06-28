@@ -60,7 +60,7 @@ class LoginDAO{
                 }
                 else{
                     res.json({
-                        "status": 200,
+                        "status": 201,
                         "message": "O gestor '"+objGestor.login+"' foi cadastrado com sucesso!",
                     });
                 }

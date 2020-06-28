@@ -93,6 +93,7 @@ class FormCadastro extends React.Component {
         document.getElementById("login").value = "";
         document.getElementById("email").value = "";
         document.getElementById("senha").value = "";
+        document.getElementById("confirma-senha").value = "";
     }
 
 
@@ -101,7 +102,7 @@ class FormCadastro extends React.Component {
         this.getDadosGestor();
          ApiService.CriaGestor(nome, login, email, senha)
          .then(res => {
-             if (res.status === 200) {
+             if (res.status === 201) {
                 PopUp.exibeMensagem('success', res.message);
                 this.limpaCampos();
              }

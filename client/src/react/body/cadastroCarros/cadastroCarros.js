@@ -9,8 +9,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import { arrayBufferToBlob } from 'blob-util';
-import $ from 'jquery';
 
 var evento = '';
 var idGestor = '', nome = '', modelo = '', cor = '', tipoAbastecimento = '', ano = '', finalPlaca = '',
@@ -102,29 +100,16 @@ class FormCadastro extends React.Component {
 
 
     cadastrarCarro = () => {
-        //TODO - isolar função
-        var file = $('#load-file')[0].files[0];
-        var fileReader = new FileReader();
-        fileReader.onloadend = function (e) {
-            var arrayBuffer = e.target.result;
-            var fileType = "image/png";
-            var blob = arrayBufferToBlob(arrayBuffer, fileType);
-            console.log('here is a blob', blob);
-            console.log('its size is', blob.size);
-            console.log('its type is', blob.arrayBuffer());
-        };
-        fileReader.readAsArrayBuffer(file);
-
         ApiService.CadastraCarro(idGestor, nome, modelo, cor, tipoAbastecimento, ano, finalPlaca, kmAtual, descricao, dadosAdicionais)
             .then(res => {
-                if (res.status === 200) {
+                if (res.status === 201) {
                     PopUp.exibeMensagem('success', res.message);
                     this.limpaCampos();
                 }
                 else
                     PopUp.exibeMensagem('error', res.message);
             })
-            .catch(err => PopUp.exibeMensagem('error', "Não foi possível comunicar com a API"));
+        .catch(err => PopUp.exibeMensagem('error', "Não foi possível comunicar com a API"));
     }
 
 
@@ -209,10 +194,6 @@ class FormCadastro extends React.Component {
                             </div>
                             <div className="div-inputs-carros">
                                 <textarea type="text" id="dadosAdicionais-carro" className="textArea-inputs-carros" placeholder="Dados Adicionais..." />
-                                <div className="right-inputs-carros">
-                                    <input type="file" id="load-file" />
-                                    <input type="text" className="txt-file-uploaded" value="!Apenas Imagens em PNG!" />
-                                </div>
                             </div>
                         </div>
                         <div className="row">

@@ -24,7 +24,7 @@ const AlterarSenhaUser = () => {
                         PopUp.exibeMensagem('success', res.message);
                         localStorage.setItem("token", "");
                         localStorage.setItem("idGestor", "");
-                        window.location.href="/";
+                        window.location.href="/login";
                     }
                     else
                         PopUp.exibeMensagem('error', res.message);

@@ -6,7 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
-//import ApiService from '../../../utils/ApiService';
+import ApiService from '../../../utils/ApiService';
 import Button from '@material-ui/core/Button';
 import PopUp from '../../../utils/PopUp';
 import Dialog from '@material-ui/core/Dialog';
@@ -57,14 +57,14 @@ class TableCar extends Component {
 
     listAllCars = () => {
         try {
-            //ApiService.GetAllCars()
-            //    .then(res => {
-            //        this.setState({ openDialog: false });
-            //        this.setState({ datasource: [] });
-            //        if (res.status === 200) {this.setState({ datasource: [...this.state.datasource, ...res.data] }); }
-            //        else { PopUp.exibeMensagem('error', res.message); this.setState({ datasource: [] }); }
-            //    })
-            //    .catch(err => PopUp.exibeMensagem('error', 'Falha na comunicação com a API ao listar as academias'));
+            ApiService.GetAllCars()
+                .then(res => {
+                    this.setState({ openDialog: false });
+                    this.setState({ datasource: [] });
+                    if (res.status === 200) {this.setState({ datasource: [...this.state.datasource, ...res.data] }); }
+                    else { PopUp.exibeMensagem('error', res.message); this.setState({ datasource: [] }); }
+                })
+                .catch(err => PopUp.exibeMensagem('error', 'Falha na comunicação com a API ao listar as academias'));
         }
         catch (err) {
             console.log(err.message);
