@@ -6,7 +6,7 @@ Equipe: Guilherme Rüdiger e Matheus Horongoso
 
 Funcionalidade Implementadas: Listagem de carros novos e seminovos, Exibição de detalhes dos carros, Login e senha do gestor, cadastro de gestor, cadastro de carros, edição de informações do carro, remoção do carro, remoção de conta do gestor, alteração de senha do gestor
 
-Tecnologias Utilizadas: Nodejs e Reactjs
+Tecnologias Utilizadas: Nodejs, Express, Reactjs e SQLite
 
 Passos Para Rodar o Projeto: 
 1 - va até o diretório 'projetoLeo' pelo prompt nele execute o comando 'npm install' (para baixar as dependencias)
