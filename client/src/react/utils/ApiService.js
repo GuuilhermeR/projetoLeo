@@ -7,8 +7,9 @@ const consomeApi = (parametro, routeMethod) => {
 }
 
 const ApiService = {
-    CriaGestor: (nome, login, email, senha) => consomeApi(`gestor/new/${nome}/${login}/${email}/${senha}`, 'POST'),
-    LoginGestor: (login, senha) => consomeApi(`gestor/${login}/${senha}`, 'POST'),
+    CriaGestor : (nome, login, email, senha) => consomeApi(`gestor/new/${nome}/${login}/${email}/${senha}`, 'POST'),
+    LoginGestor : (login, senha) => consomeApi(`gestor/${login}/${senha}`, 'POST'),
+    DeletaGestor : (idGestor, senhaAtual) => consomeApi(`delete/gestor/${idGestor}/${senhaAtual}`, 'DELETE'),
     GetAllCars : () => consomeApi(`get/all/cars`, 'GET'),
     GetCarById : (id) => consomeApi(`get/car/${id}`, 'GET'),
     AlteraSenha : (idGestor, senhaAtual, novaSenha) => consomeApi(`gestor/alterasenha/${idGestor}/${senhaAtual}/${novaSenha}`, 'PUT'),

@@ -126,5 +126,57 @@ class LoginDAO{
             console.log(err.message);
         }
     }
+
+
+    validaSenhaAtualParaDeletarUser(idGestor, senhaAtual, res){
+        try{
+            let sql = "SELECT * FROM Gestores WHERE Id = ?";
+            let params = [idGestor]
+            instanceDB.get(sql, params, (err, row) => {
+                if (err) {
+                    res.json({"status": 400,"message": err.message});
+                }
+
+                if (row != null && row != "") {
+                    if(bcrypt.compareSync(senhaAtual, row.Senha))
+                        this.deleteGestor(idGestor, res);
+                    else{
+                        res.json({ "status": 400, "message": "Senha atual Inválida!"});
+                    }
+                } 
+                else{
+                    res.json({ "status": 400, "message": "Senha atual Inválida!"});
+                }
+
+            });
+        }
+        catch(err){
+            console.log(err.message);
+        }
+    }
+    
+
+    deleteGestor(id, res){
+        try{
+            let sql = `DELETE FROM Gestores WHERE Id = ${id}`;
+            instanceDB.run(sql, [], function(err) {
+                if (err) {
+                    res.json({
+                        "status": 400,
+                        "message": "Não foi possível deletar este gestor!"
+                    });
+                }
+                else{
+                    res.json({
+                        "status": 200,
+                        "message": "O gestor foi deletado com sucesso!",
+                    });
+                }
+            });
+        }
+        catch(err){
+            console.log(err.message);
+        }
+    }
 }
 exports.LoginDAO = LoginDAO;

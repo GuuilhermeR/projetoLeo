@@ -21,6 +21,12 @@ class LoginController{
     }
 
 
+    deleteGestor(idGestor, senhaAtual, res){
+        let instaceGestorDAO = new gestorDAO.LoginDAO();
+        instaceGestorDAO.validaSenhaAtualParaDeletarUser(idGestor, senhaAtual, res);
+    }
+
+
     AlteraSenhaGestor(idGestor, senhaAtual, novaSenha, res){
         let instaceGestorDAO = new gestorDAO.LoginDAO();
         instaceGestorDAO.VerificaSenhaAtual(idGestor, senhaAtual, novaSenha, res);

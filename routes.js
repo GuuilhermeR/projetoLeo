@@ -92,6 +92,12 @@ async function Delete(dirname, app) {
             var instaceCarrosController = new carrosController.CarrosController();
             instaceCarrosController.deleteCar(req.params.id, res);
         });
+
+        app.delete("/api/revendedora/delete/gestor/:idGestor/:senhaAtual", (req, res, next) => {
+            var gestoresController = require(dirname + '/client/src/login/loginController');
+            var instaceGestoresController = new gestoresController.LoginController();
+            instaceGestoresController.deleteGestor(req.params.idGestor, req.params.senhaAtual, res);
+        });
     }
     catch(err){
         console.log(err);

@@ -14,10 +14,10 @@ const voltarChangePassword = () => {
 }
 
 
-const AlterarSenhaUser = () => {
+const alterarSenhaUser = () => {
     try{
-        if(!ValidaCamposNulosAteraSenha()){
-            if(NovasSenhasCoincidem()){
+        if(!validaCamposNulosAteraSenha()){
+            if(novasSenhasCoincidem()){
                 ApiService.AlteraSenha(localStorage.getItem("idGestor"), document.getElementById("SenhaAtual").value, document.getElementById("NovaSenha").value)
                 .then(res => {
                     if (res.status === 200) {
@@ -41,7 +41,31 @@ const AlterarSenhaUser = () => {
 }
 
 
-const ValidaCamposNulosAteraSenha = () => {
+const deletarUser = () => {
+    try{
+        if(document.getElementById("SenhaAtual").value !== ""){ 
+            ApiService.DeletaGestor(localStorage.getItem("idGestor"), document.getElementById("SenhaAtual").value)
+            .then(res => {
+                if (res.status === 200) {
+                    PopUp.exibeMensagem('success', res.message);
+                    localStorage.setItem("token", "");
+                    localStorage.setItem("idGestor", "");
+                    window.location.href="/login";
+                }
+                else
+                    PopUp.exibeMensagem('error', res.message);
+            })
+            .catch(err => PopUp.exibeMensagem('error', "Não foi possível comunicar com a API"));
+        }
+        else
+            PopUp.exibeMensagem('error', 'Digite sua senha atual para validar que esta conta é sua!');
+    }
+    catch(err){
+        console.log(err.message);
+    }
+}
+
+const validaCamposNulosAteraSenha = () => {
     try{
         if(document.getElementById("SenhaAtual").value !== ""){
             if(document.getElementById("NovaSenha").value !== ""){
@@ -58,7 +82,7 @@ const ValidaCamposNulosAteraSenha = () => {
 }
 
 
-const NovasSenhasCoincidem = () => {
+const novasSenhasCoincidem = () => {
     try{
         if(document.getElementById("NovaSenha").value === document.getElementById("ConfirmaNovaSenha").value)
             return true;
@@ -112,7 +136,13 @@ class FormAlteracao extends React.Component {
                         <div className="row">
                             <div className="div-assist-change-passw"/>
                             <div className="div-inputs-change-passw"> 
-                                <Button className="button-style-user-password" onClick={AlterarSenhaUser}>Alterar</Button>
+                                <Button className="button-style-user-password" onClick={alterarSenhaUser}>Alterar</Button>
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="div-assist-change-passw"/>
+                            <div className="div-inputs-change-passw"> 
+                                <Button className="button-style-user-password" onClick={deletarUser}>Deletar Conta</Button>
                             </div>
                         </div>
                     </div>
