@@ -55,7 +55,7 @@ class DetalhesCarro extends Component {
 
 
     gotoEncontraCarros = () => { 
-        if(localStorage.getItem("encontraCarros") == "novos")
+        if(localStorage.getItem("encontraCarros") === "novos")
             window.location.href = "/carrosNovos";
         else 
             window.location.href = "/carrosSeminovos";
