@@ -14,7 +14,7 @@ class EscolheConfig extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="Configurações"/>
+                <Header title="Configurações" displayLinksProperty="none"/>
                 <Icons />
                 <div className="div-btn-voltar-config"><Button className="btn-voltar-config" onClick={goToEscolheAcao}>Voltar</Button></div>
                 <Footer/>

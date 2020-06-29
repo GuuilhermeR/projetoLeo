@@ -27,6 +27,7 @@ class CarrosDAO{
         }
     }
 
+
     getAllCars(res){
         let sql = "SELECT * FROM Carros";
         instanceDB.all(sql, [], (err, rows) => {
@@ -45,16 +46,15 @@ class CarrosDAO{
                 }); 
             }
             else{
-                if (rows != null && rows != "") {
-                    res.json({
-                        "status": 200,
-                        "message": "Nenhum carro encontrado!",
-                        "data": rows
-                    }); 
-                }
+                res.json({
+                    "status": 400,
+                    "message": "Nenhum carro encontrado!",
+                    "data": rows
+                }); 
             }
         });
     }
+
 
     getCarById(id, res){
         let sql = "SELECT * FROM Carros WHERE Id = "+id;
@@ -74,16 +74,15 @@ class CarrosDAO{
                 }); 
             }
             else{
-                if (rows != null && rows != "") {
-                    res.json({
-                        "status": 200,
-                        "message": "Carro encontrado!",
-                        "data": rows
-                    }); 
-                }
+                res.json({
+                    "status": 400,
+                    "message": "Nenhum Carro encontrado!",
+                    "data": rows
+                }); 
             }
         });
     }
+
 
     editCar(carro, res){
         try{
@@ -94,13 +93,13 @@ class CarrosDAO{
                 if (err) {
                     res.json({
                         "status": 400,
-                        "message": "Não foi possível cadastrar o carro '"+carro.nome+"'!"
+                        "message": "Não foi possível alterar o carro '"+carro.nome+"'!"
                     });
                 }
                 else{
                     res.json({
                         "status": 200,
-                        "message": "O carro '"+carro.nome+"' foi cadastrado com sucesso!",
+                        "message": "O carro '"+carro.nome+"' foi alterado com sucesso!",
                     });
                 }
             });
@@ -132,6 +131,62 @@ class CarrosDAO{
         catch(err){
             console.log(err.message);
         }
+    }
+
+
+    getNewCars(res){
+        let sql = "SELECT * FROM Carros WHERE Ano >= 2017";
+        instanceDB.all(sql, [], (err, rows) => {
+            if (err) {
+                res.json({
+                    "status": 400,
+                    "message": err.message
+                });
+            }
+
+            if (rows != null && rows != "") {
+                res.json({
+                    "status": 200,
+                    "message": "Carros listados com sucesso!",
+                    "data": rows
+                }); 
+            }
+            else{
+                res.json({
+                    "status": 400,
+                    "message": "Nenhum carro encontrado!",
+                    "data": rows
+                }); 
+            }
+        });
+    }
+
+
+    getSeminewCars(res){
+        let sql = "SELECT * FROM Carros WHERE Ano <= 2016";
+        instanceDB.all(sql, [], (err, rows) => {
+            if (err) {
+                res.json({
+                    "status": 400,
+                    "message": err.message
+                });
+            }
+
+            if (rows != null && rows != "") {
+                res.json({
+                    "status": 200,
+                    "message": "Carros listados com sucesso!",
+                    "data": rows
+                }); 
+            }
+            else{
+                res.json({
+                    "status": 400,
+                    "message": "Nenhum carro encontrado!",
+                    "data": rows
+                }); 
+            }
+        });
     }
 }
 exports.CarrosDAO = CarrosDAO;

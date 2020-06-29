@@ -8,7 +8,7 @@ class FormEdicao extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="Edição do Carro"/>
+                <Header title="Edição do Carro" displayLinksProperty="none"/>
                 <FormEditaCarros />
                 <Footer />
             </Fragment>

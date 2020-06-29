@@ -1,0 +1,29 @@
+.scroll-carros-novos {
+    position: absolute;
+    height: 72%;
+    overflow: auto;  
+    margin-top: 1%;
+    width: 100%;
+}
+
+.border-carros-novos{
+    width: 70%;
+    margin-left: 15%;
+    height: 100%;
+}
+
+.car-found-options{
+    width: 100%;
+    height: 20%;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    border-radius: 5%;
+    text-align: center;
+    padding-top: 35px;
+    font-size: 112%;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: cursive;
+}
+
+.car-found-options:hover{box-shadow: rgb(63, 63, 63) 0px 5px; color: rgb(133, 133, 133);}

@@ -11,7 +11,7 @@ const goToHome = () =>{
 const NotAuthenticated = () =>{
     return (
         <Fragment>
-            <Header title="Área Restrita"/>
+            <Header title="Área Restrita" displayLinksProperty="none"/>
             <div className="not-authenticated">OPS... Você não tem permissão para acessar esta página!<br/>Logue no sistema para continuar!</div>
             <div className="div-voltar-authenticated"><Button className="btn-voltar-authenticated" onClick={goToHome}>Voltar</Button></div>
             <Footer/>

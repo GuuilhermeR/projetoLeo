@@ -1,4 +1,4 @@
-.left-inputs-edit-carros{
+.left-inputs-detalhes-carros{
     width: 45% !important;
     float: left !important;
     padding: 12px;
@@ -7,7 +7,7 @@
     resize: vertical;
 }
 
-.right-inputs-edit-carros{
+.right-inputs-detalhes-carros{
     width: 45% !important;
     float: right !important;
     padding: 12px;
@@ -16,7 +16,7 @@
     resize: vertical;
 }
   
-.button-edit-style {
+.button-detalhes-style {
     background-color: rgb(3, 54, 39) !important;
     width: 45% !important;
     float: right !important;
@@ -28,23 +28,23 @@
     cursor: pointer !important;
 }
   
-.button-edit-style:hover {
+.button-detalhes-style:hover {
     background-color: #535353 !important;
 }
     
-.div-assist-edit-carros {
+.div-assist-detalhes-carros {
     float: left;
     width: 13%;
     margin-top: 4.5px;
 }
   
-.div-inputs-edit-carros {
+.div-inputs-detalhes-carros {
     float: left;
     width: 75%;
     margin-top: 4.5px;
 }
 
-.button-edicao{
+.button-detalhes{
     margin-right: 1.3em !important;
     float: right;
     width: 8.3em !important;
@@ -62,13 +62,13 @@
     font-weight: bold !important;
     font-size: 83% !important;
 }
-.button-edicao:hover{ color:rgb(82, 82, 82) !important; border-color:rgb(70, 70, 70) !important;}
+.button-detalhes:hover{ color:rgb(82, 82, 82) !important; border-color:rgb(70, 70, 70) !important;}
 
-.button-dialog-form-editCar{background-color: rgb(3, 54, 39) !important; color: whitesmoke !important;}
+.button-dialog-form-detalhesCarro{background-color: rgb(3, 54, 39) !important; color: whitesmoke !important;}
   
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
-    .div-assist-edit-carros, .div-inputs-edit-carros{
+    .div-assist-detalhes-carros, .div-inputs-detalhes-carros{
       width: 100%;
       margin-top: 0;
     }

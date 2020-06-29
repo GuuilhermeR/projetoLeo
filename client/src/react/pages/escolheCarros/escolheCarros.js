@@ -11,7 +11,7 @@ class EscolheCarros extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="MG Revendedora"/>
+                <Header title="MG Revendedora" displayLinksProperty="initial"/>
                 <div className='container mb-10'><ChooseCard /></div>
                 <div className="div-btn-escolhe-carros">
                     <Button className="btn-voltar-escolhe-carros" onClick={voltarEscolheCarros}>Voltar</Button>

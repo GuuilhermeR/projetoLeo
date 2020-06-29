@@ -8,7 +8,7 @@ class CadastroGestor extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="Cadastro de Gestor"/>
+                <Header title="Cadastro de Gestor" displayLinksProperty="none"/>
                 <FormCadastro />
                 <Footer />
             </Fragment>

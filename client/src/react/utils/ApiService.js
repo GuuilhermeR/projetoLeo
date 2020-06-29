@@ -11,14 +11,16 @@ const ApiService = {
     LoginGestor: (login, senha) => consomeApi(`gestor/${login}/${senha}`, 'POST'),
     GetAllCars : () => consomeApi(`get/all/cars`, 'GET'),
     GetCarById : (id) => consomeApi(`get/car/${id}`, 'GET'),
-    AlteraSenha: (idGestor, senhaAtual, novaSenha) => consomeApi(`gestor/alterasenha/${idGestor}/${senhaAtual}/${novaSenha}`, 'PUT'),
+    AlteraSenha : (idGestor, senhaAtual, novaSenha) => consomeApi(`gestor/alterasenha/${idGestor}/${senhaAtual}/${novaSenha}`, 'PUT'),
     CadastraCarro: (idGestor, nome, modelo, cor, tipoAbastecimento, ano, finalPlaca, kmAtual, descricao, dadosAdicionais) => 
         consomeApi(`new/car/${idGestor}/${nome}/${modelo}/${cor}/${tipoAbastecimento}/${ano}/${finalPlaca}/${kmAtual}
                    /${descricao}/${dadosAdicionais}`, 'POST'),
-    AlteraCarro: (id, nome, modelo, cor, tipoAbastecimento, ano, finalPlaca, kmAtual, descricao, dadosAdicionais) => 
+    AlteraCarro : (id, nome, modelo, cor, tipoAbastecimento, ano, finalPlaca, kmAtual, descricao, dadosAdicionais) => 
         consomeApi(`edit/car/${id}/${nome}/${modelo}/${cor}/${tipoAbastecimento}/${ano}/${finalPlaca}/${kmAtual}
                     /${descricao}/${dadosAdicionais}`, 'PUT'),
-    DeletaCarro: (id) => consomeApi(`delete/car/${id}`, 'DELETE'),
+    DeletaCarro : (id) => consomeApi(`delete/car/${id}`, 'DELETE'),
+    GetNewCars : () => consomeApi(`get/new/cars`, 'GET'),
+    GetSemiNewCars : () => consomeApi(`get/seminew/cars`, 'GET'),
     TrataErros: res => {
         if (!res.ok) {
             throw Error(res.responseText)

@@ -8,7 +8,7 @@ class TabelaCarros extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="Escolhe Carro"/>
+                <Header title="Escolhe Carro" displayLinksProperty="none"/>
                 <TabelaEscolheCarro />
                 <Footer />
             </Fragment>

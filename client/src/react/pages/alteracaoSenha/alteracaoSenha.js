@@ -8,7 +8,7 @@ class AlteraSenha extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="Alteração de senha"/>
+                <Header title="Alteração de senha" displayLinksProperty="none"/>
                 <FormAlteracao />
                 <Footer />
             </Fragment>

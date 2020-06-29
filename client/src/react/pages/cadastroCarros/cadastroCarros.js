@@ -8,7 +8,7 @@ class CadastroCarros extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="Cadastro de Carros" />
+                <Header title="Cadastro de Carros" displayLinksProperty="none"/>
                 <FormCadastro />
                 <Footer />
             </Fragment>

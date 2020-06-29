@@ -8,7 +8,7 @@ class Home extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="MG Revendedora"/>
+                <Header title="MG Revendedora" displayLinksProperty="initial"/>
                 <CardHome />
                 <Footer />
             </Fragment>

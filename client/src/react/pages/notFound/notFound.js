@@ -13,7 +13,7 @@ const goToHome = () => {
 const NotFound = () =>{
     return (
         <Fragment>
-            <Header title="Page Not Found"/>
+            <Header title="Page Not Found" displayLinksProperty="none"/>
             <div className="not-found">OPS... Esta página não existe!</div>
             <div className="div-voltar-not-found"><Button className="btn-voltar-not-found" onClick={goToHome}>Voltar</Button></div>
             <Footer/>

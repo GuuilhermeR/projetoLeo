@@ -11,7 +11,7 @@ class EscolheAcao extends Component {
     render() {
         return (
             <Fragment>
-                <Header title="MG Revendedora"/>
+                <Header title="MG Revendedora" displayLinksProperty="none"/>
                 <div className='container mb-10-cards'><Cards /></div>
                 <Dialog />
                 <ConfigButton />

@@ -6,6 +6,18 @@ async function Get(dirname, app) {
             instaceCarrosController.getAllCars(res);
         });
 
+        app.get("/api/revendedora/get/new/cars", (req, res, next) => {
+            var carrosController = require(dirname + '/client/src/carros/carrosController');
+            var instaceCarrosController = new carrosController.CarrosController();
+            instaceCarrosController.getNewCars(res);
+        });
+
+        app.get("/api/revendedora/get/seminew/cars", (req, res, next) => {
+            var carrosController = require(dirname + '/client/src/carros/carrosController');
+            var instaceCarrosController = new carrosController.CarrosController();
+            instaceCarrosController.getSeminewCars(res);
+        });
+
         app.get("/api/revendedora/get/car/:id", (req, res, next) => {
             var carrosController = require(dirname + '/client/src/carros/carrosController');
             var instaceCarrosController = new carrosController.CarrosController();

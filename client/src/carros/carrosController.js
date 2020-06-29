@@ -28,5 +28,15 @@ class CarrosController{
         let instaceCarroDAO = new carroDAO.CarrosDAO();
         instaceCarroDAO.deleteCar(id, res);
     }
+
+    getNewCars(res){
+        let instaceCarroDAO = new carroDAO.CarrosDAO();
+        instaceCarroDAO.getNewCars(res);
+    }
+
+    getSeminewCars(res){
+        let instaceCarroDAO = new carroDAO.CarrosDAO();
+        instaceCarroDAO.getSeminewCars(res);
+    }
 }
 exports.CarrosController = CarrosController;

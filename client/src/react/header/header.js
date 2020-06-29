@@ -3,6 +3,10 @@ import 'materialize-css/dist/css/materialize.min.css';
 import './header.css';
 
 class Header extends React.Component{ 
+    componentDidMount(){
+        document.getElementById("links-config").style.setProperty('display', this.props.displayLinksProperty, 'important');
+    }
+    
     render(){
         return (
             <nav>

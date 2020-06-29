@@ -5,6 +5,7 @@ import Home from './react/pages/home/home';
 import EscolheCarros from './react/pages/escolheCarros/escolheCarros';
 import CarrosNovos from './react/pages/carros/carrosNovos';
 import CarrosSeminovos from './react/pages/carros/carrosSeminovos';
+import DetalhesCarro from './react/pages/detalhesCarro/detalhesCarro';
 import EscolheAcao from './react/pages/escolheAcao/escolheAcao';
 import EscolheConfig from './react/pages/escolheConfig/escolheConfig';
 import Login from './react/pages/login/login';
@@ -37,6 +38,7 @@ ReactDOM.render(
             <Route path='/escolheCarros' component={EscolheCarros} />
             <Route path='/carrosNovos' component={CarrosNovos} />
             <Route path='/carrosSeminovos' component={CarrosSeminovos} />
+            <Route path='/detalhesCarro' component={DetalhesCarro} />
             <Route path='/login' component={Login} />
             <PrivateRoute path='/escolheAcao' component={EscolheAcao} />
             <PrivateRoute path='/escolheConfig' component={EscolheConfig} />
